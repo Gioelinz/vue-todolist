@@ -27,11 +27,22 @@
                         @keyup.enter="addTask">
                     <button class="btn btn-outline-info" type="button" @click="addTask">Aggiungi</button>
                 </div>
+                <!-- Sezione tools -->
+
+                <div class="btn-group mt-2 mb-1" role="group" aria-label="Basic outlined example" v-if="tasks.length">
+                    <button type="button" class="btn btn-outline-success" @click="markAllTasks(true)">Segna tutti come
+                        fatti</button>
+                    <button type="button" class="btn btn-outline-warning" @click="markAllTasks(false)">Segna tutti come
+                        non
+                        fatti</button>
+                    <button type="button" class="btn btn-outline-danger" @click="removeAllTasks">Cancella tutti</button>
+                </div>
+
                 <!-- Sezione lista  -->
 
                 <ul class="list-group" v-if="tasks.length">
                     <li class="list-group-item d-flex justify-content-between" v-for="(task,index) in tasks"
-                        role="button">
+                        role="button" @click="markTask(index)">
                         <div>
                             <i class="bi" :class="[task.isdone ? 'bi-slash-circle' : 'bi-circle']"></i>
                             <span :class="{ischecked: task.isdone}">{{ task.text }}</span>

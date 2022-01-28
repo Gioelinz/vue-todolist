@@ -40,6 +40,24 @@ const app = new Vue({
                 this.tasks.push(taskObject)
             }
             this.newTask = '';
+        },
+
+        markTask(index) {
+            this.tasks = this.tasks.map((item, i) => {
+                if (index === i) item.isdone = !item.isdone;
+                return item;
+            })
+        },
+
+        markAllTasks(boolean) {
+            this.tasks = this.tasks.map((item, i) => {
+                item.isdone = boolean;
+                return item;
+            })
+        },
+
+        removeAllTasks() {
+            this.tasks = [];
         }
     }
 });
