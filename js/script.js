@@ -34,8 +34,12 @@ const app = new Vue({
         },
 
         addTask() {
-            const taskObject = { text: this.newTask, isdone: false }
-            this.tasks.push(taskObject)
+            const trimmedTask = this.newTask.trim()
+            const taskObject = { text: trimmedTask, isdone: false }
+            if (trimmedTask) {
+                this.tasks.push(taskObject)
+            }
+            this.newTask = '';
         }
     }
 });

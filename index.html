@@ -23,7 +23,8 @@
                 <!-- Sezione aggiunta cosa da fare -->
 
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Inserisci del testo.." v-model="newTask">
+                    <input type="text" class="form-control" placeholder="Inserisci del testo.." v-model="newTask"
+                        @keyup.enter="addTask">
                     <button class="btn btn-outline-info" type="button" @click="addTask">Aggiungi</button>
                 </div>
                 <!-- Sezione lista  -->
