@@ -23,5 +23,13 @@ const app = new Vue({
                 isdone: true,
             },
         ]
+    },
+    methods: {
+        removeTask(index) {
+            this.tasks = this.tasks.filter((item, i) => {
+                if (index === i) return false
+                return true
+            })
+        }
     }
 });

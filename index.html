@@ -31,7 +31,7 @@
                 <ul class="list-group">
                     <li class="list-group-item d-flex justify-content-between" v-for="(task,index) in tasks">
                         <span :class="{ischecked: task.isdone}">{{ task.text }}</span>
-                        <button type="button" class="btn-close"></button>
+                        <button type="button" class="btn-close" @click="removeTask(index)"></button>
                     </li>
                 </ul>
         </div>
