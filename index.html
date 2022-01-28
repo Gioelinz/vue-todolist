@@ -23,17 +23,24 @@
                 <!-- Sezione aggiunta cosa da fare -->
 
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Inserisci del testo..">
-                    <button class="btn btn-outline-info" type="button">Aggiungi</button>
+                    <input type="text" class="form-control" placeholder="Inserisci del testo.." v-model="newTask">
+                    <button class="btn btn-outline-info" type="button" @click="addTask">Aggiungi</button>
                 </div>
                 <!-- Sezione lista  -->
 
-                <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between" v-for="(task,index) in tasks">
-                        <span :class="{ischecked: task.isdone}">{{ task.text }}</span>
+                <ul class="list-group" v-if="tasks.length">
+                    <li class="list-group-item d-flex justify-content-between" v-for="(task,index) in tasks"
+                        role="button">
+                        <div>
+                            <i class="bi" :class="[task.isdone ? 'bi-slash-circle' : 'bi-circle']"></i>
+                            <span :class="{ischecked: task.isdone}">{{ task.text }}</span>
+                        </div>
                         <button type="button" class="btn-close" @click="removeTask(index)"></button>
                     </li>
                 </ul>
+                <!-- Sezione testo se senza todo -->
+
+                <h2 class="text-center my-5" v-else>Non ci sono elementi nella lista</h2>
         </div>
         </main>
     </div>

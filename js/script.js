@@ -5,6 +5,7 @@ Vue.config.devtools = true;
 const app = new Vue({
     el: '#root',
     data: {
+        newTask: '',
         tasks: [
             {
                 text: "Fare la spesa",
@@ -30,6 +31,11 @@ const app = new Vue({
                 if (index === i) return false
                 return true
             })
+        },
+
+        addTask() {
+            const taskObject = { text: this.newTask, isdone: false }
+            this.tasks.push(taskObject)
         }
     }
 });
