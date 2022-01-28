@@ -20,7 +20,7 @@ const app = new Vue({
             },
             {
                 text: "Formattare il PC di Nonno",
-                isdone: false,
+                isdone: true,
             },
         ]
     }
